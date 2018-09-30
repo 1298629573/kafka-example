@@ -37,8 +37,8 @@ public class ProducerCallback implements ListenableFutureCallback<SendResult<Str
             record.append("message(")
                     .append("key = ").append(key).append(",")
                     .append("message = ").append(message).append(",")
-                    .append("sent to partition(").append(metadata.partition()).append(",")
-                    .append("with offset(").append(metadata.offset()).append(",")
+                    .append("sent to partition(").append(metadata.partition()).append("),")
+                    .append("with offset(").append(metadata.offset()).append("),")
                     .append("in ").append(elapsedTime).append(" ms");
             log.info(record.toString());
         }

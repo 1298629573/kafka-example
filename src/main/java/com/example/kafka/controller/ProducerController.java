@@ -26,13 +26,13 @@ public class ProducerController {
 
     private Gson gson = new Gson();
 
-    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    @RequestMapping(value = "/hello",method = RequestMethod.GET , produces = "application/json")
     public Response sendKafka(){
         return new Response(ErrorCode.SUCCESS,"連接成功");
     }
 
-    @RequestMapping(value = "/send", method = RequestMethod.POST)
-    public Response sendKafka(MessageEntity message){
+    @RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
+    public Response sendKafka(@RequestBody MessageEntity message){
         System.out.println(message);
         try {
             log.info("kafka的消息={}",gson.toJson(message));
